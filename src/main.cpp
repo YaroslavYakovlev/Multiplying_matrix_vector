@@ -38,7 +38,8 @@ int main(){
   std::cout << "Multiplying_matrix_vector" << std::endl;
   
   float arr[n][n];
-  std::vector <float> vec(n);
+  std::vector<float> vec(n);
+  std::vector<float> resVec(n);
   std::cout << "Vector" << std::endl;
   fillingVector(vec, n);
   std::cout << std::endl; 
@@ -50,6 +51,14 @@ int main(){
   std::cout << std::endl; 
   std::cout << "Print vector" << std::endl;
   printVec(vec, n);
+  std::cout << std::endl; 
+  for(int i = 0; i < n; i++){
+    for(int j = 0; j < n; j++){
+      resVec[i] += vec[j] * arr[i][j];
+    }
+  }
+  std::cout << "Print result vector" << std::endl;
+  printVec(resVec, n);
 
   return 0;
 }
