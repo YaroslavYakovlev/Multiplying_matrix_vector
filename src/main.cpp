@@ -11,14 +11,15 @@ void fillingArray(float (&arr)[n][n], int n){
   }
 }
 
-void fillingArray(std::vector<float> (&vec), int n, float &valueVec){
+void fillingVector(std::vector<float> (&vec), int n){
+  float valueVec;
   for(int i = 0; i < n; i++){
     std::cin >> valueVec; 
     vec[i] = valueVec;
   }
 }
 
-void print(float (&arr)[n][n], int n){
+void printArr(float (&arr)[n][n], int n){
   for(int i = 0; i < n; i++){
     for(int j = 0; j < n; j++){
       std::cout << arr[i][j];
@@ -27,25 +28,28 @@ void print(float (&arr)[n][n], int n){
   }
 }
 
+void printVec(std::vector<float> (&vec), int n){
+  for(int i = 0; i < n; i++){
+    std::cout << vec[i] << " ";
+  }
+}
+
 int main(){
   std::cout << "Multiplying_matrix_vector" << std::endl;
   
   float arr[n][n];
   std::vector <float> vec(n);
-  float valueVec;
   std::cout << "Vector" << std::endl;
-  fillingArray(vec, n, valueVec);
+  fillingVector(vec, n);
   std::cout << std::endl; 
   std::cout << "Matrix" << std::endl;
   fillingArray(arr, n);
   std::cout << std::endl;  
   std::cout << "Print matrix" << std::endl;
-  print(arr, n);
+  printArr(arr, n);
   std::cout << std::endl; 
   std::cout << "Print vector" << std::endl;
-  for(int i = 0; i < n; i++){
-    std::cout << vec[i] << " ";
-  }
+  printVec(vec, n);
 
   return 0;
 }
