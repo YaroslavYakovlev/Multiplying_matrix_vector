@@ -11,6 +11,13 @@ void fillingArray(float (&arr)[n][n], int n){
   }
 }
 
+void fillingArray(std::vector<float> (&vec), int n, float &valueVec){
+  for(int i = 0; i < n; i++){
+    std::cin >> valueVec; 
+    vec[i] = valueVec;
+  }
+}
+
 void print(float (&arr)[n][n], int n){
   for(int i = 0; i < n; i++){
     for(int j = 0; j < n; j++){
@@ -23,17 +30,28 @@ void print(float (&arr)[n][n], int n){
 int main(){
   std::cout << "Multiplying_matrix_vector" << std::endl;
   
-  float arr_1[n][n];
+  float arr[n][n];
+  std::vector <float> vec(n);
+  float valueVec;
+  std::cout << "Vector" << std::endl;
+  fillingArray(vec, n, valueVec);
+  std::cout << std::endl; 
   std::cout << "Matrix" << std::endl;
-  fillingArray(arr_1, n);
+  fillingArray(arr, n);
   std::cout << std::endl;  
-  print(arr_1, n);
-  std::cout << std::endl;  
-  
+  std::cout << "Print matrix" << std::endl;
+  print(arr, n);
+  std::cout << std::endl; 
+  std::cout << "Print vector" << std::endl;
+  for(int i = 0; i < n; i++){
+    std::cout << vec[i] << " ";
+  }
+
   return 0;
 }
 
 // Умножение матрицы на вектор
+
 // Реализуйте частный случай умножения матрицы на матрицу, 
 // а именно — умножение вектора на матрицу. 
 // Данная операция также весьма распространена в 
